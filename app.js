@@ -1,4 +1,5 @@
-var len = 0;
+var len = 0;//it is number of pending tasks ,incrementing and deincementing it 
+//in respective function but 
 console.log('welcome to console!!')
 const form = document.querySelector('#task-form');
 const tasklist = document.querySelector('.collection');
@@ -52,6 +53,8 @@ function addtask(e)
 {
   len = len +1 ;
   console.log(len)
+  localStorage.len= Number(localStorage.len) + 1;
+  $( 'button .content' ).text( len );
     if(taskinput.value ==='')
     {
         alert('Please add a task')
@@ -99,6 +102,9 @@ function removetask(e)
 {
   len = len - 1;
   console.log(len);
+  localStorage.len= Number(localStorage.len) - 1;
+
+  $( 'button .content' ).text( len );
     if(e.target.parentElement.classList.contains('delete-item') ){
 
 e.target.parentElement.parentElement.remove();
@@ -111,6 +117,7 @@ removeTaskFromLocalStorage(
 function cleartasks(){
   len = 0 ;
   console.log(len);
+  $( 'button .content' ).text( len );
   if(tasklist.firstChild = ''){
     alert('Please add a task!')
   }
@@ -160,4 +167,3 @@ function filtertasks(e){
 
     }
     $( 'button .content' ).text( len );
-   
