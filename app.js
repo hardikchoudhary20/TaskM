@@ -1,3 +1,4 @@
+var len = 0;
 console.log('welcome to console!!')
 const form = document.querySelector('#task-form');
 const tasklist = document.querySelector('.collection');
@@ -49,6 +50,8 @@ function getTasks(){
 }
 function addtask(e)
 {
+  len = len +1 ;
+  console.log(len)
     if(taskinput.value ==='')
     {
         alert('Please add a task')
@@ -92,7 +95,10 @@ function storeTaskInLocalStorage(task) {
 
 
 function removetask(e)
+
 {
+  len = len - 1;
+  console.log(len);
     if(e.target.parentElement.classList.contains('delete-item') ){
 
 e.target.parentElement.parentElement.remove();
@@ -103,6 +109,8 @@ removeTaskFromLocalStorage(
 
 }
 function cleartasks(){
+  len = 0 ;
+  console.log(len);
   if(tasklist.firstChild = ''){
     alert('Please add a task!')
   }
@@ -151,4 +159,5 @@ function filtertasks(e){
         localStorage.clear();
 
     }
+    $( 'button .content' ).text( len );
    
