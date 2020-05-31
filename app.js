@@ -103,13 +103,19 @@ removeTaskFromLocalStorage(
 
 }
 function cleartasks(){
+  if(tasklist.firstChild = ''){
+    alert('Please add a task!')
+  }
+  else{
    // tasklist.innerHTML = '';
    confirm('Do you want to clear all tasks?');
    
    while(tasklist.firstChild){
        tasklist.removeChild(tasklist.firstChild);
 clearTasksFromLocalStorage();
+   
    }
+  }
 }
 function filtertasks(e){
     const text = e.target.value.toLowerCase();
